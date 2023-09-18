@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  input {
+    @apply w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none
+  }
+  button {
+    @apply w-full bg-blue-500 text-white items-center px-4 py-2 border border-transparent rounded-md shadow-sm 
+  }
+}
