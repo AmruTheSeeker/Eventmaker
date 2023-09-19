@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base{
+    body{
+        @apply bg-[rgb(241,239,238)]
+    }
+    .card{
+        @apply bg-white rounded-lg shadow;
+    }
+}
