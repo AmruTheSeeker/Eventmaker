@@ -1,13 +1,13 @@
-import Link from 'next/link'
+import { Section1 } from "@/components/LandingPage/components/LandingPage.Section1";
+import { Header } from "@/components/LandingPage/components/LandingPage.Header";
+import { EventList } from "@/components/LandingPage/components/LandingPage.EventList";
 
 export default function Page() {
-  return( 
-  
-  <div className="space-y-8 md:space-y-6 sm:p-9">
-    <h1 className="card-title font-bold">Ini rencananya landing page</h1> 
-
-    <Link href="/signup"><button>Sign up</button></Link>   
+  return (
+  <div>
+    <Header/>
+    <Section1/>
+    <EventList/>
   </div>
-
-  
-  )}
+  )
+}
