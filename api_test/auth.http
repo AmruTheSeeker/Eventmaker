@@ -1,0 +1,17 @@
+### Create user
+POST https://eventmakers-api.vercel.app/api/auth/register
+
+{
+    "name" : "The Great",
+    "email" : "hallo@gmail.com",
+    "password" : "12345678"
+}
+
+### Login user
+
+POST https://eventmakers-api.vercel.app/api/auth/login
+
+{
+    "email" : "hallo@gmail.com",
+    "password" : "12345678"
+}
