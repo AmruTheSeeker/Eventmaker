@@ -6,13 +6,16 @@
   body{
     @apply bg-[rgb(241,239,238)]
   }
-.card{
-    @apply bg-white rounded-lg shadow;
-  }
   input {
     @apply w-full px-3 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none
   }
   button {
     @apply w-full bg-blue-500 text-white items-center px-4 py-2 border border-transparent rounded-md shadow-sm 
+  }
+}
+
+@layer components {
+  .card{
+    @apply bg-white rounded-lg shadow;
   }
 }

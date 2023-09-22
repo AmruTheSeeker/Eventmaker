@@ -4,7 +4,7 @@ import { EventList } from "@/components/LandingPage/components/LandingPage.Event
 
 export default function Page() {
   return (
-  <div>
+  <div>    
     <Header/>
     <Section1/>
     <EventList/>
