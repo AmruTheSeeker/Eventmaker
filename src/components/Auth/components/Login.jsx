@@ -2,9 +2,40 @@
 
 import { Input, Button } from "@nextui-org/react";
 import { useLogin } from "../hooks/useLogin";
+import toast from "react-hot-toast";
+import Cookies from "js-cookie";
+import { useRouter } from "next/navigation";
 
 export const Login = () => {
-  const { isLoading, loginData, handleEventChange, handleLogin } = useLogin();
+  const router = useRouter();
+  const { loginData, handleEventChange} = useLogin();
+  const handleLogin = async () => {
+    toast.loading("try to log in...");
+    const { email, password } = loginData;
+    const res = await fetch(
+      "https://eventmakers-api.vercel.app/api/auth/login",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      }
+    );
+    const data = await res.json();
+    toast.remove();
+    if (res.ok) {
+      // Login successful, set the token and redirect to /dashboard
+      Cookies.set("token", data.token);
+      router.push("/dashboard");
+    } else {
+      // Handle login failure here (e.g., display an error message)
+      toast.error("Login failed. Please check your credentials.");
+    }
+    // toast.success("You are successfully login")
+    // Cookies.set("token", data.token);
+    // router.push("/dashboard")
+  }
 
   return (
     <main className="h-screen flex justify-center items-center">
@@ -25,7 +56,7 @@ export const Login = () => {
           placeholder="password"
           onChange={handleEventChange}
         />
-        <Button isLoading={isLoading} color="primary" onClick={handleLogin}>
+        <Button color="primary" onClick={handleLogin}>
           Login
         </Button>
       </div>
